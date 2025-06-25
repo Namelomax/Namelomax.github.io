@@ -1,1 +1,20 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя интерактивная карта</title>
+  <script src="https://azgaar.github.io/Fantasy-Map-Generator/FMG.js"></script>
+  <style>body { margin: 0; overflow: hidden; }</style>
+</head>
+<body>
+  <script>
+    // Загружаем ваш .map-файл
+    fetch('world.map')
+      .then(response => response.json())
+      .then(data => {
+        // Инициализируем карту с вашими данными
+        const map = new FantasyMapGenerator(data);
+        window.addEventListener('resize', () => map.resize());
+      });
+  </script>
+</body>
+</html>
